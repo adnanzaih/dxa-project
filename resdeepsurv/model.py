@@ -91,7 +91,7 @@ class ResDeepSurv(nn.Module):
 
     def _build_network(self):
         ''' Performs building networks according to parameters'''
-        seed = 3045  # 宇宙答案
+        seed = 3045 
         random.seed()
         os.environ['PYTHONHASHSEED'] = str(seed)
         np.random.seed(seed)
@@ -108,8 +108,6 @@ class ResDeepSurv(nn.Module):
                 layers.append(nn.Dropout(self.drop))
             # adds linear layer
             layers.append(nn.Linear(self.dims[i], self.dims[i+1]))
- #           if self.norm:
-#                layers.append(nn.BatchNorm1d(self.dims[i+1]))
             # adds activation layer
             residual_block = []
             for j in range(2):
